@@ -53,7 +53,6 @@ p {
     position: absolute;
     color: white;
     width: 100%;
-    letter-spacing: 2px;
 }
 
 .healer-menu-text.row1 {
@@ -62,22 +61,26 @@ p {
 }
 
 .healer-menu-text.row2 {
-    top: 48%;
+    top: 49%;
     left: 1%;
+    z-index: 2;
 }
 
 .healer-menu-text.row3 {
-    top: 69%;
+    top: 70%;
     left: 1%;
 }
 
 .healer-menu-text a {
     text-decoration: none;
-    display: block;
     cursor: default;
+    font-size: 16px;
+    position: absolute;
     letter-spacing: 1px;
-    font-size: 15px;
+    width: 304px;
+    height: 19px;
 }
+
 
 .healer-menu-text a:hover {
     color: #E2E200;

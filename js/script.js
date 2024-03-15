@@ -25,7 +25,7 @@ document.addEventListener("DOMContentLoaded", function () {
         minX: 505,
         maxX: 630,
         minY: 120,
-        maxY: 430
+        maxY: 450
     };
     let foodClickableArea = {
         minX: 675,
@@ -267,7 +267,7 @@ document.addEventListener("DOMContentLoaded", function () {
             minX: 505,
             maxX: 660,
             minY: 93,
-            maxY: 440
+            maxY: 465
         };
         context.clearRect(0, 0, canvas.width, canvas.height)
         context.drawImage(backgroundImage, 0, 0, canvas.width, canvas.height);
@@ -285,7 +285,7 @@ document.addEventListener("DOMContentLoaded", function () {
             minX: 505,
             maxX: 630,
             minY: 120,
-            maxY: 430
+            maxY: 450
         };
         context.clearRect(0, 0, canvas.width, canvas.height)
         context.drawImage(backgroundImage, 0, 0, canvas.width, canvas.height);
@@ -303,7 +303,7 @@ document.addEventListener("DOMContentLoaded", function () {
             minX: 500,
             maxX: 600,
             minY: 155,
-            maxY: 405
+            maxY: 425
         };
         context.clearRect(0, 0, canvas.width, canvas.height)
         context.drawImage(backgroundImage, 0, 0, canvas.width, canvas.height);
@@ -321,7 +321,7 @@ document.addEventListener("DOMContentLoaded", function () {
             minX: 485,
             maxX: 565,
             minY: 185,
-            maxY: 390
+            maxY: 405
         };
         context.clearRect(0, 0, canvas.width, canvas.height)
         context.drawImage(backgroundImage, 0, 0, canvas.width, canvas.height);
