@@ -58,7 +58,7 @@ document.addEventListener("DOMContentLoaded", function () {
     function updateCounter() {
         counterDisplay.textContent = "Current streak: " + currentStreak;
             if (currentStreak === 0 && previousStreak > currentStreak) {
-                previousDisplay.textContent = "Previous Streak: " + previousStreak;
+                previousDisplay.textContent = "Previous streak: " + previousStreak;
             }
             if (currentStreak === 0 && previousStreak > highestStreak) {
                 highestStreak = previousStreak;

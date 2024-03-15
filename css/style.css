@@ -1,35 +1,38 @@
+@font-face {
+    font-family: osrsFont;
+    src: url('../assets/runescape.ttf');
+}
+
 body {
     display: flex;
     align-items: center;
     flex-direction: column;
     margin: 0;
     background-color: rgb(29, 28, 28);
-    font-family: Arial, sans-serif;
+    font-family: 'osrsFont', sans-serif;
 }
 html {
     user-select: none;
 }
 
-p {
+b {
+    color: #E2E200;
+}
+
+.button-container {
     width: 893px;
-    font-size: 18px;
+}
+
+li {
+    width: 893px;
+    font-size: 22px;
     color: white;
-}
-
-.buttons-container {
-    display: flex;
-    flex-direction: row;
-    margin: -10px 0px 10px 0px;
-}
-
-.buttons-container button {
-    margin-right: 30px;
 }
 
 .session-info {
     display: flex;
     color: white;
-    font-size: 20px;
+    font-size: 22px;
 }
 
 #hiscoreDisplay, #counterDisplay, #previousDisplay {
@@ -74,13 +77,12 @@ p {
 .healer-menu-text a {
     text-decoration: none;
     cursor: default;
-    font-size: 16px;
+    font-size: 19px;
     position: absolute;
     letter-spacing: 1px;
     width: 304px;
     height: 19px;
 }
-
 
 .healer-menu-text a:hover {
     color: #E2E200;
