@@ -15,6 +15,20 @@ html {
     user-select: none;
 }
 
+img {
+    -webkit-user-drag: none;
+}
+
+.indicators p {
+    position: absolute;
+    display: none;
+    color: #E2E200;
+    top: 17.2%;
+    left: 37%;
+    font-size: 18px;
+    letter-spacing: 2px;
+}
+
 .indicators img {
     position: absolute;
     display: none;

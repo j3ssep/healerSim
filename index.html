@@ -34,19 +34,23 @@
         <button id="moveFoodLeft">Food left</button>
         -->
     </div>
+
     <canvas id="gameCanvas" width="893" height="583"></canvas>
+    
     <div class="session-info">
         <div id="hiscoreDisplay">Highest streak: N/A</div>
         <div id="previousDisplay">Previous streak: N/A</div>
         <div id="counterDisplay">Current streak: 0</div>
     </div>
+
     <div class="indicators">
         <img src="./assets/wormhoverindicator.png" id="wormIndicator">
-        <img src="./assets/wormhealerselectedindicator.png" id="wormHealerIndicator">
         <img src="./assets/wormselectedindicator.png" id="wormSelectedIndicator">
-        <img src="./assets/defaultindicator.png" id="defaultIndicator" style="display: block;">
+        <p id="wormHealerIndicator">Penance Healer</p>
     </div>
+
     <img src="./assets/misclickmenu.png" id="misclickImage" class="misclickMenu">
+
     <div id="healerMenu" style="display: none;">
         <img src="./assets/rightclick.png">
         
@@ -61,7 +65,6 @@
         <div class="healer-menu-text row3" id="bottomHealerMenu">
             <a>Cancel</a>
         </div>
-
     </div>
 </body>
 </html>

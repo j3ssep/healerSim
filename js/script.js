@@ -245,6 +245,7 @@ document.addEventListener("DOMContentLoaded", function () {
             ) 
         {
             wormHealerIndicator.style.display = "block";
+            wormSelectedIndicator.style.display = "block";
         }
         else {
             wormHealerIndicator.style.display = "none";
@@ -258,20 +259,7 @@ document.addEventListener("DOMContentLoaded", function () {
         )
         {
             wormSelectedIndicator.style.display = "block";
-        }
-        else {
-            wormSelectedIndicator.style.display = "none";
-        }
-        if (
-            wormIndicator.style.display === "none" &&
-            wormHealerIndicator.style.display === "none" &&
-            wormSelectedIndicator.style.display === "none"
-            ) 
-        {
-            defaultIndicator.style.display = "block";
-        }
-        else {
-            defaultIndicator.style.display = "none";
+            wormSelectedIndicator.style.display = "block";
         }
     });
 
