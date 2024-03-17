@@ -22,6 +22,7 @@
 </div>
 <div class="button-container">
     <button id="hideButton">Hide/show instructions</button>
+    <button id="toggleToolTip">Mouse tooltip off</button>
         <button id="zoomButton60">60%</button>
         <button id="zoomButton80">80%</button>
         <button id="zoomButton100">100% (default)</button>
@@ -34,8 +35,16 @@
         <button id="moveFoodLeft">Food left</button>
         -->
     </div>
-
+    <div class="wrapper">
+        <div class="indicators">
+            <p id="wormHealerToolTip">Use <b>Poisoned Worms </b>-> <span>Penance Healer</span></p>
+            <p id="wormToolTip">Use <b>Poisoned Worms</b></p>
+            <img src="./assets/wormhoverindicator.png" id="wormIndicator">
+            <img src="./assets/wormselectedindicator.png" id="wormSelectedIndicator">
+            <p id="wormHealerIndicator">Penance Healer</p>
+        </div>
     <canvas id="gameCanvas" width="893" height="583"></canvas>
+</div>
     
     <div class="session-info">
         <div id="hiscoreDisplay">Highest streak: N/A</div>
@@ -43,11 +52,7 @@
         <div id="counterDisplay">Current streak: 0</div>
     </div>
 
-    <div class="indicators">
-        <img src="./assets/wormhoverindicator.png" id="wormIndicator">
-        <img src="./assets/wormselectedindicator.png" id="wormSelectedIndicator">
-        <p id="wormHealerIndicator">Penance Healer</p>
-    </div>
+
 
     <img src="./assets/misclickmenu.png" id="misclickImage" class="misclickMenu">
 

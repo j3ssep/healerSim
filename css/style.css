@@ -19,21 +19,64 @@ img {
     -webkit-user-drag: none;
 }
 
+.wrapper {
+    position: relative;
+    width: 893px;
+    height: 583px;
+}
+
 .indicators p {
     position: absolute;
     display: none;
     color: #E2E200;
-    top: 17.2%;
-    left: 37%;
+    top: -1.9%;
+    left: 23%;
     font-size: 18px;
     letter-spacing: 2px;
+    z-index: 3;
+    text-wrap: nowrap;
+}
+
+.indicators b {
+    color: #FF9440;
 }
 
 .indicators img {
     position: absolute;
     display: none;
-    top: 19%;
-    left: 27%;
+    top: 1%;
+    left: 1%;
+    z-index: 3;
+}
+
+.indicators span {
+    color: #E2E200;
+}
+
+button {
+    font-family: 'osrsFont', sans-serif;
+    font-size: 18px;
+    background-color: #554C41;
+    padding: 5px;
+    color: #C27112;
+    border-radius: 10%;
+    border: 2px solid #2b2621;
+    font-weight: 600;
+}
+
+button:active {
+    background-color: #645a4d;
+}
+
+#wormToolTip, #wormHealerToolTip {
+    font-size: 13px;
+    color: white !important;
+    position: fixed;
+    display: none;
+    transform: translate(2px, 9px);
+    border: 2px solid rgba(0, 0, 0, 0.5);
+    padding: 3px;
+    background-color: rgba(36, 36, 36, 0.411);
 }
 
 b {
@@ -57,7 +100,7 @@ li {
 }
 
 #hiscoreDisplay, #counterDisplay, #previousDisplay {
-    margin: 10px 70px;
+    margin: 20px 70px;
     width: 200px;
 }
 
@@ -119,4 +162,8 @@ li {
 
 #zoomButton60 {
     margin-left: 50px;
+}
+
+#toggleToolTip {
+    margin-left: 30px;
 }

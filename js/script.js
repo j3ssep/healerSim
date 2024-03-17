@@ -193,6 +193,8 @@ document.addEventListener("DOMContentLoaded", function () {
         wormHealerIndicator.style.display = "none";
         wormSelectedIndicator.style.display = "none";
         wormIndicator.style.display = "none";
+        wormHealerToolTip.style.display ="none";
+        wormToolTip.style.display = "none";
     });
 //Gets rid of the default browser right click menu
     document.addEventListener("contextmenu", function (event) {
@@ -222,7 +224,8 @@ document.addEventListener("DOMContentLoaded", function () {
         if (!isMouseNearMisMenu) {
             misclickImage.style.display = "none";
         }
-        //Indicator (top left) display logic
+//Indicator (top left) display logic
+//Worm hover
         if (
             foodImage.src.endsWith("defaultstate.png") &&
             event.clientX >= canvasRect.left + foodClickableArea.minX &&
@@ -231,25 +234,37 @@ document.addEventListener("DOMContentLoaded", function () {
             event.clientY <= canvasRect.top + foodClickableArea.maxY
             )
         {
+            wormToolTip.style.display = "block";
+            wormToolTip.style.left = event.clientX + "px";
+            wormToolTip.style.top = event.clientY + "px";
             wormIndicator.style.display = "block";
         }
         else {
             wormIndicator.style.display = "none";
+            wormToolTip.style.display = "none";
         }
+//Worm selected and hovering healer
         if (
             foodImage.src.endsWith("usestate.png") &&
             event.clientX >= canvasRect.left + healerClickableArea.minX &&
             event.clientX <= canvasRect.left + healerClickableArea.maxX &&
             event.clientY >= canvasRect.top + healerClickableArea.minY &&
-            event.clientY <= canvasRect.top + healerClickableArea.maxY
+            event.clientY <= canvasRect.top + healerClickableArea.maxY &&
+            !isMouseNearHealerMenu &&
+            !isMouseNearMisMenu
             ) 
         {
+            wormHealerToolTip.style.display = "block";
+            wormHealerToolTip.style.left = event.clientX + "px";
+            wormHealerToolTip.style.top = event.clientY + "px";
             wormHealerIndicator.style.display = "block";
             wormSelectedIndicator.style.display = "block";
         }
         else {
+            wormHealerToolTip.style.display ="none";
             wormHealerIndicator.style.display = "none";
         }
+//Worm selected
         if (
             foodImage.src.endsWith("usestate.png") &&
             !(event.clientX >= canvasRect.left + healerClickableArea.minX &&
@@ -374,5 +389,18 @@ document.addEventListener("DOMContentLoaded", function () {
         setTimeout(function () {
             context.drawImage(foodImage, 672, 525, 50, 45)
         }, 500);
+    })
+    toggleToolTip.addEventListener("click", function(){
+        if (document.getElementById("toggleToolTip").textContent === "Mouse tooltip off"){
+            wormHealerToolTip.style.opacity = 0;
+            wormToolTip.style.opacity = 0;
+            document.getElementById("toggleToolTip").textContent = "Mouse tooltip on"
+        }
+        else {
+            wormHealerToolTip.style.opacity = 1;
+            wormToolTip.style.opacity = 1;
+            document.getElementById("toggleToolTip").textContent = "Mouse tooltip off"
+        }
+
     })
 });
