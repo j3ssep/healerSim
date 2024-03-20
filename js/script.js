@@ -21,6 +21,8 @@ document.addEventListener("DOMContentLoaded", function () {
     let resetTickInterval;
     let instructionsContainer = document.getElementById("instructionsContainer");
     let hideButton = document.getElementById("hideButton");
+    let foodPosX = 672;
+    let foodPosY = 525;
     let healerClickableArea = {
         minX: 505,
         maxX: 630,
@@ -39,11 +41,11 @@ document.addEventListener("DOMContentLoaded", function () {
     };
 
     inventoryImage.onload = function () {
-        context.drawImage(inventoryImage, 658, 263, 235, 320);
+        context.drawImage(inventoryImage, 658, 273, 235, 310);
     };
 
     foodImage.onload = function () {
-        context.drawImage(foodImage, 672, 525, 50, 45);
+        context.drawImage(foodImage, foodPosX, foodPosY, 50, 45);
     };
 
     setTimeout(function () {
@@ -53,7 +55,15 @@ document.addEventListener("DOMContentLoaded", function () {
     setTimeout(function () {
         foodImage.src = "./assets/defaultstate.png";
     }, 500);
-
+//Redraw inventory and foodImage function
+    function redrawInvFood() {
+        setTimeout(function () {
+            context.drawImage(inventoryImage, 658, 273, 235, 310);
+        }, 100);
+        setTimeout(function () {
+            context.drawImage(foodImage, foodPosX, foodPosY, 50, 45);
+        }, 200);
+    }
 //Food streak update
     function updateCounter() {
         counterDisplay.textContent = "Current streak: " + currentStreak;
@@ -163,9 +173,9 @@ document.addEventListener("DOMContentLoaded", function () {
                 wormSelectedIndicator.style.display = "block";
             }
 //Clears the foodImage and inventoryImage (x,y,width,height)
-            context.clearRect(658, 263, 235, 320);
+            context.clearRect(658, 273, 235, 310);
 //Redraws foodImage and inventoryImage (x,y,width,height)
-            context.drawImage(inventoryImage, 658, 263, 235, 320);
+            context.drawImage(inventoryImage, 658, 273, 235, 310);
         }
     });
 //Right click logic
@@ -282,19 +292,19 @@ document.addEventListener("DOMContentLoaded", function () {
         instructionsContainer.classList.toggle("hide-button");
     });
 //Clickable divs within healerMenu
-    topHealerMenu.addEventListener("mousedown", function () {
+    topHealerMenu.addEventListener("mousedown", function (event) {
        if (event.button === 0) {
         wrongHealerOption();
         }
     });
 
-    middleHealerMenu.addEventListener("mousedown", function () {
+    middleHealerMenu.addEventListener("mousedown", function (event) {
         if (event.button === 0) {
         correctHealerOption();
         }
     });
 
-    bottomHealerMenu.addEventListener("mousedown", function () {
+    bottomHealerMenu.addEventListener("mousedown", function (event) {
         if (event.button === 0) {
         cancelMenuOption();
         }
@@ -310,12 +320,7 @@ document.addEventListener("DOMContentLoaded", function () {
         };
         context.clearRect(0, 0, canvas.width, canvas.height)
         context.drawImage(backgroundImage, 0, 0, canvas.width, canvas.height);
-        setTimeout(function () {
-            context.drawImage(inventoryImage, 658, 263, 235, 320);
-        }, 300);
-        setTimeout(function () {
-            context.drawImage(foodImage, 672, 525, 50, 45)
-        }, 500);
+        redrawInvFood();
     })
 
     zoomButton120.addEventListener("click", function () {
@@ -329,12 +334,7 @@ document.addEventListener("DOMContentLoaded", function () {
         };
         context.clearRect(0, 0, canvas.width, canvas.height)
         context.drawImage(backgroundImage, 0, 0, canvas.width, canvas.height);
-        setTimeout(function () {
-            context.drawImage(inventoryImage, 658, 263, 235, 320);
-        }, 300);
-        setTimeout(function () {
-            context.drawImage(foodImage, 672, 525, 50, 45)
-        }, 500);
+        redrawInvFood();
     })
 
     zoomButton100.addEventListener("click", function () {
@@ -347,12 +347,7 @@ document.addEventListener("DOMContentLoaded", function () {
         };
         context.clearRect(0, 0, canvas.width, canvas.height)
         context.drawImage(backgroundImage, 0, 0, canvas.width, canvas.height);
-        setTimeout(function () {
-            context.drawImage(inventoryImage, 658, 263, 235, 320);
-        }, 300);
-        setTimeout(function () {
-            context.drawImage(foodImage, 672, 525, 50, 45)
-        }, 500);
+        redrawInvFood();
     })
 
     zoomButton80.addEventListener("click", function () {
@@ -365,12 +360,7 @@ document.addEventListener("DOMContentLoaded", function () {
         };
         context.clearRect(0, 0, canvas.width, canvas.height)
         context.drawImage(backgroundImage, 0, 0, canvas.width, canvas.height);
-        setTimeout(function () {
-            context.drawImage(inventoryImage, 658, 263, 235, 320);
-        }, 300);
-        setTimeout(function () {
-            context.drawImage(foodImage, 672, 525, 50, 45)
-        }, 500);
+        redrawInvFood();
     })
 
     zoomButton60.addEventListener("click", function () {
@@ -383,12 +373,7 @@ document.addEventListener("DOMContentLoaded", function () {
         };
         context.clearRect(0, 0, canvas.width, canvas.height)
         context.drawImage(backgroundImage, 0, 0, canvas.width, canvas.height);
-        setTimeout(function () {
-            context.drawImage(inventoryImage, 658, 263, 235, 320);
-        }, 300);
-        setTimeout(function () {
-            context.drawImage(foodImage, 672, 525, 50, 45)
-        }, 500);
+        redrawInvFood();
     })
     toggleToolTip.addEventListener("click", function(){
         if (document.getElementById("toggleToolTip").textContent === "Mouse tooltip off"){
@@ -401,6 +386,70 @@ document.addEventListener("DOMContentLoaded", function () {
             wormToolTip.style.opacity = 1;
             document.getElementById("toggleToolTip").textContent = "Mouse tooltip off"
         }
-
     })
+    foodPos.addEventListener("click", function(){
+        let currentFoodPos = parseInt(document.getElementById("foodPos").textContent.replace("Food position: ", ""));
+        let foodPos = (currentFoodPos % 6) + 1;
+        document.getElementById("foodPos").textContent = "Food position: " + foodPos.toString();
+        if (foodPos === 1){
+            foodPosY = 525;
+            foodClickableArea = {
+            minX: 675,
+            maxX: 720,
+            minY: 530,
+            maxY: 568
+            }
+            redrawInvFood();
+        }
+        if (foodPos === 2){
+            foodPosY = 488;
+            foodClickableArea = {
+                minX: 675,
+                maxX: 720,
+                minY: 492,
+                maxY: 530
+                }
+                redrawInvFood();
+        }
+        if (foodPos === 3){
+            foodPosY = 452;
+            foodClickableArea = {
+                minX: 675,
+                maxX: 720,
+                minY: 454,
+                maxY: 492
+                }
+                redrawInvFood();
+        }
+        if (foodPos === 4){
+            foodPosY = 415;
+            foodClickableArea = {
+                minX: 675,
+                maxX: 720,
+                minY: 416,
+                maxY: 454
+                }
+                redrawInvFood();
+        }
+        if (foodPos === 5){
+            foodPosY = 375;
+            foodClickableArea = {
+                minX: 675,
+                maxX: 720,
+                minY: 378,
+                maxY: 416
+                }
+                redrawInvFood();
+        }
+        if (foodPos === 6){
+            foodPosY = 333;
+            foodClickableArea = {
+                minX: 675,
+                maxX: 720,
+                minY: 340,
+                maxY: 378
+                }
+                redrawInvFood();
+        }
+    });
 });
