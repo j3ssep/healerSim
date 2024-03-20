@@ -62,7 +62,7 @@ document.addEventListener("DOMContentLoaded", function () {
         }, 100);
         setTimeout(function () {
             context.drawImage(foodImage, foodPosX, foodPosY, 50, 45);
-        }, 200);
+        }, 400);
     }
 //Food streak update
     function updateCounter() {
